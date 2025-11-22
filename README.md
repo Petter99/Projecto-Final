@@ -2,6 +2,8 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.11.
 
+[Video de explicación](https://drive.google.com/file/d/1t8FPemhhQqNkWsyN8yccztBmtCJV5Xa6/view?usp=sharing)
+
 ## Development server
 
 To start a local development server, run:
