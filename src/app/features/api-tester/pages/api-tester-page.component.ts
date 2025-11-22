@@ -1,8 +1,9 @@
+// src/app/features/api-tester/pages/api-tester-page.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RequestFormComponent } from '../components/request-form/request-form.component';
 import { ResponseViewerComponent } from '../components/response-viewer/response-viewer.component';
-import { ApiTesterService } from '../../../../core/services/api-tester.service';
+import { ApiTesterService } from '../../../core/services/api-tester.service';
 import { ApiRequest } from '../../../core/models/api-request.model';
 import { ApiResponse } from '../../../core/models/api-response.model';
 

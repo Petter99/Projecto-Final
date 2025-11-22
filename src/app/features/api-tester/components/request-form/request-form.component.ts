@@ -1,5 +1,5 @@
 // src/app/features/api-tester/components/request-form/request-form.component.ts
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpMethod } from '../../../../core/models/http-method.enum';
@@ -7,8 +7,8 @@ import { ApiRequest, HeaderItem } from '../../../../core/models/api-request.mode
 
 @Component({
   selector: 'app-request-form',
-  standalone: true,
   imports: [CommonModule, FormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './request-form.component.html',
   styleUrls: ['./request-form.component.css']
 })

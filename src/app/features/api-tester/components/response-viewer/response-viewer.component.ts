@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiResponse } from '../../../../core/models/api-response.model';
 
 @Component({
   selector: 'app-response-viewer',
-  standalone: true,
   imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './response-viewer.component.html',
   styleUrls: ['./response-viewer.component.css']
 })
