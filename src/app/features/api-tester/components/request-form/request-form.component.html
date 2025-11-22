@@ -1,0 +1,100 @@
+<!-- src/app/features/api-tester/components/request-form/request-form.component.html -->
+<div class="request-form">
+    <h2 class="section-title">Nueva Petición</h2>
+    
+    <form (ngSubmit)="onSubmit()">
+      <!-- URL y Método -->
+      <div class="form-row">
+        <div class="form-group flex-1">
+          <label for="url">URL</label>
+          <input
+            type="text"
+            id="url"
+            [(ngModel)]="url"
+            name="url"
+            placeholder="https://api.example.com/endpoint"
+            class="input"
+            required
+          />
+        </div>
+        
+        <div class="form-group method-group">
+          <label for="method">Método</label>
+          <select
+            id="method"
+            [(ngModel)]="selectedMethod"
+            name="method"
+            class="select"
+          >
+            <option *ngFor="let method of httpMethods" [value]="method">
+              {{ method }}
+            </option>
+          </select>
+        </div>
+      </div>
+  
+      <!-- Headers -->
+      <div class="form-section">
+        <div class="section-header">
+          <h3 class="subsection-title">Headers</h3>
+          <button type="button" (click)="addHeader()" class="btn-secondary">
+            + Agregar Header
+          </button>
+        </div>
+        
+        <div class="headers-list" *ngIf="headers.length > 0">
+          <div class="header-item" *ngFor="let header of headers; let i = index">
+            <input
+              type="text"
+              [(ngModel)]="header.key"
+              [name]="'headerKey' + i"
+              placeholder="Key"
+              class="input input-sm"
+            />
+            <input
+              type="text"
+              [(ngModel)]="header.value"
+              [name]="'headerValue' + i"
+              placeholder="Value"
+              class="input input-sm"
+            />
+            <button
+              type="button"
+              (click)="removeHeader(i)"
+              class="btn-remove"
+              title="Eliminar header"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+        
+        <p class="empty-message" *ngIf="headers.length === 0">
+          No hay headers configurados
+        </p>
+      </div>
+  
+      <!-- Body -->
+      <div class="form-section" *ngIf="methodsWithBody">
+        <div class="section-header">
+          <h3 class="subsection-title">Body (JSON)</h3>
+          <button type="button" (click)="formatJson()" class="btn-secondary btn-sm">
+            Formatear
+          </button>
+        </div>
+        
+        <textarea
+          [(ngModel)]="bodyText"
+          name="body"
+          placeholder='{ "key": "value" }'
+          class="textarea"
+          rows="10"
+        ></textarea>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn-primary btn-large">
+        Ejecutar Petición
+      </button>
+    </form>
+  </div>
